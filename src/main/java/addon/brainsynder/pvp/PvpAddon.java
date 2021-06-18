@@ -7,11 +7,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import simplepets.brainsynder.addon.AddonConfig;
 import simplepets.brainsynder.addon.PetAddon;
+import simplepets.brainsynder.api.Namespace;
 import simplepets.brainsynder.api.plugin.SimplePets;
 import simplepets.brainsynder.api.user.PetUser;
 
 import java.util.List;
 
+@Namespace(namespace = "PvpAddon")
 public class PvpAddon extends PetAddon {
     private boolean removePlayerPet = false;
     private boolean removeAttackingPlayerPet = false;
