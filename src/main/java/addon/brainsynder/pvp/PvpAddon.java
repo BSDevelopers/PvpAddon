@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import simplepets.brainsynder.addon.AddonConfig;
 import simplepets.brainsynder.addon.PetAddon;
@@ -51,12 +52,13 @@ public class PvpAddon extends PetAddon {
         );
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onHit (EntityDamageByEntityEvent event) {
         if (!isEnabled()) return;
         // Will ensure it is a player getting damaged
         if (!(event.getEntity() instanceof Player)) return;
         Player player = (Player) event.getEntity();
+        if (event.isCancelled()) return;
 
         PetUser user = SimplePets.getUserManager().getPetUser(player).get();
         // PVP
