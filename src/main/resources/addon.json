@@ -1,0 +1,12 @@
+{
+  "name": "PvpAddon",
+  "author": "brainsynder",
+
+  "version": 0.2,
+  "supported-build": 163,
+
+  "description": [
+    "&7Handles certain tasks for when the pets",
+    "&7Owner is in combat with another player"
+  ]
+}

@@ -1,21 +1,18 @@
 package addon.brainsynder.pvp;
 
-import com.google.common.collect.Lists;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import simplepets.brainsynder.addon.AddonConfig;
-import simplepets.brainsynder.addon.PetAddon;
+import simplepets.brainsynder.addon.PetModule;
 import simplepets.brainsynder.api.Namespace;
 import simplepets.brainsynder.api.plugin.SimplePets;
 import simplepets.brainsynder.api.user.PetUser;
 
-import java.util.List;
-
 @Namespace(namespace = "PvpAddon")
-public class PvpAddon extends PetAddon {
+public class PvpAddon extends PetModule {
     private boolean removePlayerPet = false;
     private boolean removeAttackingPlayerPet = false;
 
@@ -32,24 +29,6 @@ public class PvpAddon extends PetAddon {
 
         removePlayerPet = config.getBoolean("Remove-Pet.From-Player", false);
         removeAttackingPlayerPet = config.getBoolean("Remove-Pet.From-Attacker", false);
-    }
-
-    @Override
-    public double getVersion() {
-        return 0.1;
-    }
-
-    @Override
-    public String getAuthor() {
-        return "brainsynder";
-    }
-
-    @Override
-    public List<String> getDescription() {
-        return Lists.newArrayList(
-                "&7Handles certain tasks for when the pets",
-                        "&7Owner is in combat with another player"
-        );
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
